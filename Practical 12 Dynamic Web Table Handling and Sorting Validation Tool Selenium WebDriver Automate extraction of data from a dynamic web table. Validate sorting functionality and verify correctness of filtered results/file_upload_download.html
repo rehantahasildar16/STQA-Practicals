@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Table</title>
+
+<script>
+
+function sortTable(){
+
+var table=document.getElementById("studentTable");
+var rows=Array.from(table.rows).slice(1);
+
+rows.sort(function(a,b){
+return a.cells[0].innerHTML.localeCompare(b.cells[0].innerHTML);
+});
+
+for(var i=0;i<rows.length;i++){
+table.appendChild(rows[i]);
+}
+}
+
+function searchTable(){
+
+var input=document.getElementById("search").value.toUpperCase();
+var table=document.getElementById("studentTable");
+var tr=table.getElementsByTagName("tr");
+
+for(var i=1;i<tr.length;i++){
+
+var td=tr[i].getElementsByTagName("td")[1];
+
+if(td){
+
+if(td.innerHTML.toUpperCase().indexOf(input)>-1)
+tr[i].style.display="";
+
+else
+tr[i].style.display="none";
+
+}
+}
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2 align="center">Student Information</h2>
+
+<input type="text" id="search" placeholder="Search Course">
+
+<button onclick="searchTable()">Search</button>
+
+<button onclick="sortTable()">Sort By Name</button>
+
+<br><br>
+
+<table border="1" id="studentTable">
+
+<tr>
+<th>Name</th>
+<th>Course</th>
+<th>Marks</th>
+</tr>
+
+<tr>
+<td>Ethan Johnson</td>
+<td>BSc CS</td>
+<td>85</td>
+</tr>
+
+<tr>
+<td>Olivia Brown</td>
+<td>BCA</td>
+<td>92</td>
+</tr>
+
+<tr>
+<td>Liam Anderson</td>
+<td>BSc IT</td>
+<td>78</td>
+</tr>
+
+<tr>
+<td>Sophia Wilson</td>
+<td>BCA</td>
+<td>88</td>
+</tr>
+
+<tr>
+<td>Noah Martinez</td>
+<td>BCom</td>
+<td>81</td>
+</tr>
+
+<tr>
+<td>Emma Taylor</td>
+<td>BSc CS</td>
+<td>95</td>
+</tr>
+
+<tr>
+<td>William Thomas</td>
+<td>BSc IT</td>
+<td>76</td>
+</tr>
+
+<tr>
+<td>Ava Moore</td>
+<td>BCA</td>
+<td>89</td>
+</tr>
+
+<tr>
+<td>James White</td>
+<td>BCom</td>
+<td>84</td>
+</tr>
+
+<tr>
+<td>Isabella Harris</td>
+<td>BSc CS</td>
+<td>91</td>
+</tr>
+
+</table>
+
+</body>
+</html>
