@@ -1,0 +1,6 @@
+# Python libraries used in the STQA practicals
+selenium==4.45.0
+openpyxl
+pytest
+pytest-html
+locust
